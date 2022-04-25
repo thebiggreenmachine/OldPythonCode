@@ -71,7 +71,7 @@ def start_cellular_stream(filename, fps, width, height): #Function which starts 
         print("We're running 480p25fps cellular!")
         client.load_system_host_keys()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect(hostname="76.70.161.20", port=22, username="pi", password="ddm115mg", timeout=10) # IP address used to connect to the cellular header via SSL, if the address changes, change this to connect again.
+        client.connect(hostname="76.70.161.20", port=22, username="pi", password="********", timeout=10) # IP address used to connect to the cellular header via SSL, if the address changes, change this to connect again.
 # Generate our stream using GStreamer commands
         p = subprocess.Popen(
                 f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" GST_DEBUG_FILE=/home/mitch/{filename}480p25fpsCellularlatencydata.csv gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
@@ -97,7 +97,7 @@ def start_cellular_stream(filename, fps, width, height): #Function which starts 
             print(f"We're running {height}p {fps} fps cellular!")
             client.load_system_host_keys()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            client.connect(hostname="76.70.161.20", port=22, username="pi", password="ddm115mg", timeout=10)
+            client.connect(hostname="76.70.161.20", port=22, username="pi", password="********", timeout=10)
             p = subprocess.Popen(
                 f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" GST_DEBUG_FILE=/home/mitch/{filename}{height}p{fps}fpsCellularlatencydata.csv gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
                 f"  rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",shell=True)
@@ -116,7 +116,7 @@ def start_cellular_stream(filename, fps, width, height): #Function which starts 
             print(f"We're running {height}p {fps} fps cellular!")
             client.load_system_host_keys()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            client.connect(hostname="76.70.161.20", port=22, username="pi", password="ddm115mg", timeout=10)
+            client.connect(hostname="76.70.161.20", port=22, username="pi", password="********", timeout=10)
             p = subprocess.Popen(
                 f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" GST_DEBUG_FILE=/home/mitch/{filename}{height}p{fps}fpsCellularlatencydata.csv gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
                 f"  rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
@@ -150,7 +150,7 @@ def start_radio_stream(filename, fps, width, height):
         print("We're running 480p25fps radio!")
         client.load_system_host_keys()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect(hostname="192.168.168.170", port=22, username="pi", password="ddm115mg", timeout=5) #IP address to connect over radio, if you use a different device or adjust the IP addresses make sure to change this.
+        client.connect(hostname="192.168.168.170", port=22, username="pi", password="********", timeout=5) #IP address to connect over radio, if you use a different device or adjust the IP addresses make sure to change this.
         p = subprocess.Popen(
             f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" GST_DEBUG_FILE=/home/mitch/{filename}{height}p25fpsRadiolatencydata.csv gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
             f"  rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
@@ -169,7 +169,7 @@ def start_radio_stream(filename, fps, width, height):
             print("We're running 576p20fps radio!")
             client.load_system_host_keys()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            client.connect(hostname="192.168.168.170", port=22, username="pi", password="ddm115mg", timeout=5)
+            client.connect(hostname="192.168.168.170", port=22, username="pi", password="********", timeout=5)
             p = subprocess.Popen(
                 f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" GST_DEBUG_FILE=/home/mitch/{filename}{height}p{fps}fpsRadiolatencydata.csv gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
                 f"  rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
@@ -186,7 +186,7 @@ def start_radio_stream(filename, fps, width, height):
             print("We're running 480p20fps radio!")
             client.load_system_host_keys()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            client.connect(hostname="192.168.168.170", port=22, username="pi", password="ddm115mg", timeout=5)
+            client.connect(hostname="192.168.168.170", port=22, username="pi", password="********", timeout=5)
             p = subprocess.Popen(
                 f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" GST_DEBUG_FILE=/home/mitch/{filename}{height}p{fps}fpsRadiolatencydata.csv gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
                 f"  rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
@@ -223,7 +223,7 @@ def reboot():
     print("We're rebooting the Pi!")
     client.load_system_host_keys()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(hostname="76.70.161.20", port=22, username="pi", password="ddm115mg", timeout=10)
+    client.connect(hostname="76.70.161.20", port=22, username="pi", password="********", timeout=10)
     stdin, stdout, stderr = client.exec_command('sudo reboot -h')
     print("stderr: ", stderr.readlines())
     print("pwd: ", stdout.readlines())
@@ -235,7 +235,7 @@ def reboot_over_radio():
     print("We're rebooting the Pi!")
     client.load_system_host_keys()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(hostname="192.168.168.170", port=22, username="pi", password="ddm115mg", timeout=10)
+    client.connect(hostname="192.168.168.170", port=22, username="pi", password="********", timeout=10)
     stdin, stdout, stderr = client.exec_command('sudo reboot -h')
     print("stderr: ", stderr.readlines())
     print("pwd: ", stdout.readlines())
@@ -247,8 +247,8 @@ def attemptsynchronize():
     print("Trying to synchronize clocks!")
     client.load_system_host_keys()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(hostname="192.168.168.170", port=22, username="pi", password="ddm115mg")
-    #q = subprocess.Popen(['sudo ntpd ddm115mg'], shell=TRUE)
+    client.connect(hostname="192.168.168.170", port=22, username="pi", password="********")
+    #q = subprocess.Popen(['sudo ntpd ********'], shell=TRUE)
     stdin, stdout, stderr = client.exec_command('sudo ntpdate -b 192.168.168.127')
     print("stderr: ", stderr.readlines())
     print("pwd: ", stdout.readlines())
@@ -261,9 +261,9 @@ def check_time_difference():
     client = paramiko.SSHClient()
     client.load_system_host_keys()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(hostname="192.168.168.170", port=22, username="pi", password="ddm115mg")
-    # q = subprocess.Popen(['sudo ntpd ddm115mg'], shell=TRUE)
-    stdin, stdout, stderr = client.exec_command('sudo service ntp stop ddm115mg')
+    client.connect(hostname="192.168.168.170", port=22, username="pi", password="********")
+    # q = subprocess.Popen(['sudo ntpd ********'], shell=TRUE)
+    stdin, stdout, stderr = client.exec_command('sudo service ntp stop ********')
     stdin, stdout, stderr = client.exec_command('sudo ntpdate -q 192.168.168.127')
     print("stderr: ", stderr.readlines())
     print("pwd: ", stdout.readlines())
@@ -275,8 +275,8 @@ def reconnect_radio():
     print("Re-enabling the connection for Radio Tests!")
     client.load_system_host_keys()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(hostname="76.70.161.20", port=22, username="pi", password="ddm115mg")
-    stdin, stdout, stderr = client.exec_command(('sudo ifconfig eth0 up ddm115mg'))
+    client.connect(hostname="76.70.161.20", port=22, username="pi", password="********")
+    stdin, stdout, stderr = client.exec_command(('sudo ifconfig eth0 up ********'))
     time.sleep(5)
     client.close()
 def close_stream():
@@ -287,7 +287,7 @@ def close_stream():
     print("Closing current video stream on Pi")
     client.load_system_host_keys()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(hostname="76.70.161.20", port=22, username="pi", password="ddm115mg")
+    client.connect(hostname="76.70.161.20", port=22, username="pi", password="********")
     stdin, stdout, stderr = client.exec_command(('pkill -fi gst-launch'))
     time.sleep(5)
     client.close()
@@ -330,7 +330,7 @@ def start_ethernet_stream(filename, fps, width, height):
         print("Running ethernet calibration...")
         client.load_system_host_keys()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect(hostname="192.168.168.170", port=22, username="pi", password="ddm115mg", timeout=10) #
+        client.connect(hostname="192.168.168.170", port=22, username="pi", password="********", timeout=10) #
         p = subprocess.Popen(
             f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" GST_DEBUG_FILE=/home/mitch/{filename}25fpsEthernetData.csv gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
             f"  rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
@@ -354,7 +354,7 @@ def start_ethernet_stream(filename, fps, width, height):
             print("Running ethernet calibration...")
             client.load_system_host_keys()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            client.connect(hostname="192.168.168.170", port=22, username="pi", password="ddm115mg", timeout=10)
+            client.connect(hostname="192.168.168.170", port=22, username="pi", password="********", timeout=10)
             p = subprocess.Popen(
                 f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" GST_DEBUG_FILE=/home/mitch/{filename}{height}p{fps}fpsEthernetData.csv gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
                 f" rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
@@ -372,7 +372,7 @@ def start_ethernet_stream(filename, fps, width, height):
             print("Running ethernet calibration...")
             client.load_system_host_keys()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            client.connect(hostname="192.168.168.170", port=22, username="pi", password="ddm115mg", timeout=10)
+            client.connect(hostname="192.168.168.170", port=22, username="pi", password="********", timeout=10)
             p = subprocess.Popen(
                 f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" GST_DEBUG_FILE=/home/mitch/{filename}{height}p{fps}fpsEthernetData.csv gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
                 f" rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
@@ -396,8 +396,8 @@ def start_ethernet_stream(filename, fps, width, height):
 def ntp_reconnect():
     #Reconnects to the NTP server if synchronization issues are encountered.
     print("Joining new NTP server!")
-    q = subprocess.Popen(['sudo service ntp stop ddm115mg'], shell=TRUE)
-    o = subprocess.Popen(['sudo service ntp start ddm115mg'], shell=TRUE)
+    q = subprocess.Popen(['sudo service ntp stop ********'], shell=TRUE)
+    o = subprocess.Popen(['sudo service ntp start ********'], shell=TRUE)
 
 
 def radio_play():
@@ -420,7 +420,7 @@ def start_radio_play(fps, width, height, connectionip, filename):
         print("We're running 480p25fps radio!")
         client.load_system_host_keys()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect(hostname=f"{connectionip}", port=22, username="pi", password="ddm115mg", timeout=5)
+        client.connect(hostname=f"{connectionip}", port=22, username="pi", password="********", timeout=5)
         p = subprocess.Popen(
             f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
             f"  rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
@@ -438,7 +438,7 @@ def start_radio_play(fps, width, height, connectionip, filename):
             print("We're running 576p20fps!")
             client.load_system_host_keys()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            client.connect(hostname=f"{filename}", port=22, username="pi", password="ddm115mg", timeout=5)
+            client.connect(hostname=f"{filename}", port=22, username="pi", password="********", timeout=5)
             p = subprocess.Popen(
                 f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
                 f"  rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
@@ -454,7 +454,7 @@ def start_radio_play(fps, width, height, connectionip, filename):
             print("We're running 480p20fps radio!")
             client.load_system_host_keys()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            client.connect(hostname=f"{filename}", port=22, username="pi", password="ddm115mg", timeout=5)
+            client.connect(hostname=f"{filename}", port=22, username="pi", password="********", timeout=5)
             p = subprocess.Popen(
                 f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
                 f"  rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
@@ -517,7 +517,7 @@ def start_VBR_cellular_stream(filename, fps, width, height):
             print("We're running 480p25fps cellular!")
             client.load_system_host_keys()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            client.connect(hostname="76.70.161.20", port=22, username="pi", password="ddm115mg", timeout=10)
+            client.connect(hostname="76.70.161.20", port=22, username="pi", password="********", timeout=10)
             p = subprocess.Popen(
                 f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" GST_DEBUG_FILE=/home/mitch/{filename}VBR480p25fpsCellularlatencydata.csv gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
                 f"  rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
@@ -539,7 +539,7 @@ def start_VBR_cellular_stream(filename, fps, width, height):
                 print(f"We're running {height}p {fps} fps VBR cellular!")
                 client.load_system_host_keys()
                 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                client.connect(hostname="76.70.161.20", port=22, username="pi", password="ddm115mg", timeout=10)
+                client.connect(hostname="76.70.161.20", port=22, username="pi", password="********", timeout=10)
                 p = subprocess.Popen(
                     f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" GST_DEBUG_FILE=/home/mitch/{filename}VBR{height}p{fps}fpsCellularlatencydata.csv gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
                     f"  rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
@@ -559,7 +559,7 @@ def start_VBR_cellular_stream(filename, fps, width, height):
                 print(f"We're running {height}p {fps} fps VBR cellular!")
                 client.load_system_host_keys()
                 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                client.connect(hostname="76.70.161.20", port=22, username="pi", password="ddm115mg", timeout=10)
+                client.connect(hostname="76.70.161.20", port=22, username="pi", password="********", timeout=10)
                 p = subprocess.Popen(
                     f"GST_DEBUG=\"GST_TRACER:7\" GST_TRACERS=\"framerate;bitrate;interlatency\" GST_DEBUG_FILE=/home/mitch/{filename}VBR{height}p{fps}fpsCellularlatencydata.csv gst-launch-1.0 --gst-debug=4  udpsrc port=4200 ! 'application/x-rtp, encoding-name=H264, width={width}, height={height}, payload=96'!"
                     f"  rtph264depay ! avdec_h264 ! videoconvert ! \'video/x-raw\' ! timeoverlayparse ! glimagesink sync=false",
